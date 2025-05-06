@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thunder Road Motorcycles - Premium Bikes & Gear</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap');
+        
+        :root {
+            --primary: #e63946;
+            --secondary: #1d3557;
+            --accent: #f1faee;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .logo-font {
+            font-family: 'Bebas Neue', cursive;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .bike-card:hover .bike-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .bike-overlay {
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <i class="fas fa-motorcycle text-3xl text-red-500 mr-2"></i>
+                        <span class="logo-font text-3xl text-gray-800">Thunder<span class="text-red-500">Road</span></span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-800 hover:text-red-500 font-medium">Home</a>
+                    <a href="#bikes" class="nav-link text-gray-800 hover:text-red-500 font-medium">Bikes</a>
+                    <a href="#services" class="nav-link text-gray-800 hover:text-red-500 font-medium">Services</a>
+                    <a href="#parts" class="nav-link text-gray-800 hover:text-red-500 font-medium">Parts</a>
+                    <a href="#contact" class="nav-link text-gray-800 hover:text-red-500 font-medium">Contact</a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="mobile-menu" class="mobile-menu md:hidden bg-white px-4">
+                <div class="flex flex-col space-y-3 py-4">
+                    <a href="#home" class="text-gray-800 hover:text-red-500 font-medium">Home</a>
+                    <a href="#bikes" class="text-gray-800 hover:text-red-500 font-medium">Bikes</a>
+                    <a href="#services" class="text-gray-800 hover:text-red-500 font-medium">Services</a>
+                    <a href="#parts" class="text-gray-800 hover:text-red-500 font-medium">Parts</a>
+                    <a href="#contact" class="text-gray-800 hover:text-red-500 font-medium">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="logo-font text-5xl md:text-7xl mb-6">Ride The Thunder</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Premium motorcycles, expert service, and everything you need for the open road.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#bikes" class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Browse Bikes
+                </a>
+                <a href="#contact" class="bg-transparent hover:bg-white hover:text-gray-900 border-2 border-white text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                    Book Service
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Bikes -->
+    <section id="bikes" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="logo-font text-4xl md:text-5xl text-gray-800 mb-4">Featured <span class="text-red-500">Motorcycles</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore our curated selection of premium motorcycles from top brands worldwide.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Bike 1 -->
+                <div class="bike-card bg-white rounded-lg overflow-hidden shadow-lg relative">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1580310614697-87c270f8c39f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Harley Davidson" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                        <div class="bike-overlay absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-6">
+                            <div>
+                                <span class="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full">NEW</span>
+                                <h3 class="text-white text-2xl font-bold mt-2">Harley Davidson</h3>
+                                <p class="text-gray-300">Street Glide Special</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-gray-900 font-bold text-xl">$24,999</span>
+                            <div class="flex">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-gray-600 text-sm mb-4">
+                            <span><i class="fas fa-tachometer-alt mr-1"></i> 1,200cc</span>
+                            <span><i class="fas fa-gas-pump mr-1"></i> 45 mpg</span>
+                            <span><i class="fas fa-bolt mr-1"></i> 90 HP</span>
+                        </div>
+                        <button class="w-full bg-gray-900 hover:bg-red-500 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Bike 2 -->
+                <div class="bike-card bg-white rounded-lg overflow-hidden shadow-lg relative">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558981852-426c6c22a060?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Ducati" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                        <div class="bike-overlay absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-6">
+                            <div>
+                                <span class="bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full">BEST SELLER</span>
+                                <h3 class="text-white text-2xl font-bold mt-2">Ducati</h3>
+                                <p class="text-gray-300">Monster 1200</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-gray-900 font-bold text-xl">$18,499</span>
+                            <div class="flex">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star-half-alt text-yellow-400"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-gray-600 text-sm mb-4">
+                            <span><i class="fas fa-tachometer-alt mr-1"></i> 1,200cc</span>
+                            <span><i class="fas fa-gas-pump mr-1"></i> 38 mpg</span>
+                            <span><i class="fas fa-bolt mr-1"></i> 135 HP</span>
+                        </div>
+                        <button class="w-full bg-gray-900 hover:bg-red-500 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Bike 3 -->
+                <div class="bike-card bg-white rounded-lg overflow-hidden shadow-lg relative">
+                    <div class="relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558980394-4c7c9299fe96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Indian" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                        <div class="bike-overlay absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-6">
+                            <div>
+                                <span class="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">LIMITED</span>
+                                <h3 class="text-white text-2xl font-bold mt-2">Indian</h3>
+                                <p class="text-gray-300">Chief Vintage</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-gray-900 font-bold text-xl">$21,999</span>
+                            <div class="flex">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="far fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-gray-600 text-sm mb-4">
+                            <span><i class="fas fa-tachometer-alt mr-1"></i> 1,811cc</span>
+                            <span><i class="fas fa-gas-pump mr-1"></i> 42 mpg</span>
+                            <span><i class="fas fa-bolt mr-1"></i> 120 HP</span>
+                        </div>
+                        <button class="w-full bg-gray-900 hover:bg-red-500 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                    View All Bikes
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="logo-font text-4xl md:text-5xl text-gray-800 mb-4">Our <span class="text-red-500">Services</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Comprehensive motorcycle services to keep your ride in perfect condition.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 text-center">
+                    <div class="bg-red-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-tools text-red-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Maintenance</h3>
+                    <p class="text-gray-600">Regular check-ups and maintenance to ensure your bike runs smoothly and safely.</p>
+                    <a href="#" class="inline-block text-red-500 font-medium mt-4 hover:underline">Learn More</a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 text-center">
+                    <div class="bg-blue-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-bolt text-blue-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Performance Upgrades</h3>
+                    <p class="text-gray-600">Boost your bike's power and efficiency with our expert performance upgrades.</p>
+                    <a href="#" class="inline-block text-blue-500 font-medium mt-4 hover:underline">Learn More</a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 text-center">
+                    <div class="bg-green-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-spray-can text-green-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Custom Paint</h3>
+                    <p class="text-gray-600">Make your bike stand out with our professional custom paint services.</p>
+                    <a href="#" class="inline-block text-green-500 font-medium mt-4 hover:underline">Learn More</a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-xl transition duration-300 text-center">
+                    <div class="bg-yellow-100 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-ambulance text-yellow-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Emergency Repairs</h3>
+                    <p class="text-gray-600">24/7 emergency repair services to get you back on the road quickly.</p>
+                    <a href="#" class="inline-block text-yellow-500 font-medium mt-4 hover:underline">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parts & Accessories -->
+    <section id="parts" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="logo-font text-4xl md:text-5xl text-gray-800 mb-4">Parts & <span class="text-red-500">Accessories</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Premium parts and accessories to customize and enhance your ride.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Part 1 -->
+                <div class="group relative overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Helmets" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-2xl font-bold">Helmets</h3>
+                            <p class="text-gray-300">Premium protection for your most important asset</p>
+                            <button class="mt-3 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+                                Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Part 2 -->
+                <div class="group relative overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1558981852-426c6c22a060?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Exhaust Systems" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-2xl font-bold">Exhaust Systems</h3>
+                            <p class="text-gray-300">Enhance performance and sound with premium exhausts</p>
+                            <button class="mt-3 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+                                Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Part 3 -->
+                <div class="group relative overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Riding Gear" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent flex items-end p-6">
+                        <div>
+                            <h3 class="text-white text-2xl font-bold">Riding Gear</h3>
+                            <p class="text-gray-300">Stay comfortable and protected in all conditions</p>
+                            <button class="mt-3 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+                                Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-900 text-white p-8 md:p-12 rounded-lg">
+                    <h3 class="logo-font text-3xl mb-4">Trade-In Your Bike</h3>
+                    <p class="text-gray-300 mb-6">Upgrade to a new ride? We offer competitive trade-in values for your current motorcycle.</p>
+                    <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded transition duration-300">
+                        Get an Estimate
+                    </button>
+                </div>
+                
+                <div class="bg-red-500 text-white p-8 md:p-12 rounded-lg">
+                    <h3 class="logo-font text-3xl mb-4">Financing Available</h3>
+                    <p class="text-gray-100 mb-6">Low-interest financing options to make your dream bike more affordable.</p>
+                    <button class="bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-6 rounded transition duration-300">
+                        Apply Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="logo-font text-4xl md:text-5xl text-gray-800 mb-4">Rider <span class="text-red-500">Testimonials</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Hear what our customers have to say about their Thunder Road experience.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The team at Thunder Road transformed my old bike into something spectacular. Their attention to detail is unmatched!"</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Mike Johnson" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Mike Johnson</h4>
+                            <p class="text-gray-500 text-sm">Harley Owner</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"I bought my first motorcycle here and the staff made the whole process so easy. They really care about their customers."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Williams" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">Sarah Williams</h4>
+                            <p class="text-gray-500 text-sm">New Rider</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex">
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star text-yellow-400"></i>
+                            <i class="fas fa-star-half-alt text-yellow-400"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Their service department is the best in town. Fast, reliable, and they stand behind their work 100%."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Chen" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold">David Chen</h4>
+                            <p class="text-gray-500 text-sm">Long-time Customer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="logo-font text-4xl md:text-5xl text-gray-800 mb-4">Get In <span class="text-red-500">Touch</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Have questions? Want to schedule service? Contact us today!</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition">
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-gray-700 font-medium mb-2">Service Needed</label>
+                            <select id="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition">
+                                <option value="">Select a service</option>
+                                <option value="maintenance">Maintenance</option>
+                                <option value="repair">Repair</option>
+                                <option value="custom">Custom Work</option>
+                                <option value="purchase">Purchase Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div>
+                    <div class="bg-gray-100 p-8 rounded-lg h-full">
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-red-500 text-white p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Address</h4>
+                                    <p class="text-gray-600">123 Thunder Road<br>Motor City, MC 12345</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-red-500 text-white p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Phone</h4>
+                                    <p class="text-gray-600">(555) 123-4567<br>24/7 Emergency: (555) 987-6543</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-red-500 text-white p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Email</h4>
+                                    <p class="text-gray-600">info@thunderroadmc.com<br>service@thunderroadmc.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-red-500 text-white p-3 rounded-full mr-4">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Hours</h4>
+                                    <p class="text-gray-600">Mon-Fri: 9am - 7pm<br>Sat: 9am - 5pm<br>Sun: 10am - 4pm</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold text-gray-800 mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-gray-200 hover:bg-red-500 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-gray-200 hover:bg-red-500 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-gray-200 hover:bg-red-500 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="bg-gray-200 hover:bg-red-500 hover:text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map -->
+    <div class="h-96 w-full">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2920.486837423332!2d76.6664564!3d43.2077343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38834f7675d8a6c3%3A0x7b7d14aec270c056!2sSDU%20University!5e0!3m2!1sen!2skz!4v1714980150000!5m2!1sen!2skz" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <a href="#" class="flex items-center mb-6">
+                        <i class="fas fa-motorcycle text-3xl text-red-500 mr-2"></i>
+                        <span class="logo-font text-3xl">Thunder<span class="text-red-500">Road</span></span>
+                    </a>
+                    <p class="text-gray-400">Premium motorcycles, expert service, and everything you need for the open road since 1995.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-gray-400 hover:text-red-500 transition">Home</a></li>
+                        <li><a href="#bikes" class="text-gray-400 hover:text-red-500 transition">Inventory</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-red-500 transition">Services</a></li>
+                        <li><a href="#parts" class="text-gray-400 hover:text-red-500 transition">Parts</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-red-500 transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-red-500 transition">Maintenance</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-500 transition">Repairs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-500 transition">Custom Work</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-500 transition">Performance Upgrades</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-500 transition">Paint & Body</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to get updates on new arrivals, special offers, and events.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-900">
+                        <button type="submit" class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded-r-lg transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div class="mt-6">
+                        <h5 class="font-bold mb-3">Follow Us</h5>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-red-500 transition"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-red-500 transition"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-red-500 transition"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-gray-400 hover:text-red-500 transition"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2023 Thunder Road Motorcycles. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-red-500 text-sm transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-red-500 text-sm transition">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-red-500 text-sm transition">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('open');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (document.getElementById('mobile-menu').classList.contains('open')) {
+                    document.getElementById('mobile-menu').classList.remove('open');
+                }
+            });
+        });
+
+        // Form submission (placeholder)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Bike card hover effect enhancement
+        const bikeCards = document.querySelectorAll('.bike-card');
+        bikeCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.querySelector('img').classList.add('scale-110');
+            });
+            card.addEventListener('mouseleave', function() {
+                this.querySelector('img').classList.remove('scale-110');
+            });
+        });
+    </script>
+</body>
+</html>
